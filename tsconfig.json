@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ES2020",
+    "outDir": "dist",
+    "sourceMap": true,
+
+    "strict": true,
+    "strictPropertyInitialization": false,   // <— to wyłącza czerwone w DTO
+    "useDefineForClassFields": false,        // <— bezpieczne w Nest, pomaga z polami klas
+    "skipLibCheck": true,
+
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    "baseUrl": "./",
+    "incremental": true,
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts", "prisma/**/*.ts"],
+  "exclude": ["node_modules", "dist", "**/*.spec.ts"]
+}
