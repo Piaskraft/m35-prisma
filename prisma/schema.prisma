@@ -9,20 +9,21 @@ datasource db {
 }
 
 model Product {
-  id          String   @id @default(uuid())
-  name        String
-  price       Int
+  id         String   @id @default(uuid())
+  name       String
+  price      Int
   description String?
-  createdAt   DateTime @default(now())
-  orders      Order[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt   // <— DODANE @default(now())
+  orders     Order[]  // 1 -> n
 }
 
 model Order {
-  id        String   @id @default(uuid())
-  productId String
-  client    String
-  address   String
-  createdAt DateTime @default(now())
-
-  product   Product  @relation(fields: [productId], references: [id])
+  id         String   @id @default(uuid())
+  productId  String?                                      // opcjonalne przy SetNull
+  product    Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  client     String
+  address    String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt          // <— DODANE @default(now())
 }

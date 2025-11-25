@@ -1,25 +1,19 @@
 {
   "name": "m35-prisma",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/main.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/main.js",
     "prisma:push": "prisma db push",
-    "prisma:generate": "prisma generate"
+    "prisma:generate": "prisma generate",
+    "prisma:seed": "ts-node --project tsconfig.json prisma/seed.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
-    "@types/node": "^24.10.1",
-    "prisma": "^4.16.2",
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.9.3"
+  "prisma": {
+    "seed": "ts-node --project tsconfig.json prisma/seed.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.1.9",
@@ -29,5 +23,18 @@
     "@prisma/client": "^4.16.2",
     "mysql2": "^2.3.3",
     "reflect-metadata": "^0.2.2"
-  }
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "prisma": "^4.16.2",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  },
+  "license": "ISC",
+  "author": "",
+  "keywords": []
 }
+
+ 
+
